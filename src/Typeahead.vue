@@ -39,6 +39,10 @@ const typeahead = {
       data: {
         type: Array
       },
+      query: {
+        type: String,
+        twoWay: true
+      },
       limit: {
         type: Number,
         default: 8
@@ -47,16 +51,21 @@ const typeahead = {
         type: String
       },
       template: {
-        type:String
+        type: String
       },
       templateName: {
-        type:String,
+        type: String,
         default: 'default'
       },
       key: {
         type: String
       },
       matchCase: {
+        type: Boolean,
+        coerce: coerceBoolean,
+        default: false
+      },
+      matchStart: {
         type: Boolean,
         coerce: coerceBoolean,
         default: false
@@ -74,7 +83,6 @@ const typeahead = {
     },
     data() {
       return {
-        query: '',
         showDropdown: false,
         noResults: true,
         current: 0,
@@ -87,7 +95,7 @@ const typeahead = {
           return this.data.filter(value=> {
             value = this.matchCase ? value : value.toLowerCase();
             var query = this.matchCase ? this.query : this.query.toLowerCase();
-            return value.indexOf(query) !== -1;
+            return this.matchStart ? value.indexOf(query) === 0 : value.indexOf(query) !== -1;
           }).slice(0, this.limit)
         }
       }
@@ -111,7 +119,7 @@ const typeahead = {
         }
         if (this.async) {
           callAjax(this.async + this.query, (data)=> {
-            this.items = data[this.key].slice(0, this.limit)
+            this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
             this.showDropdown = this.items.length ? true : false
           })
         }

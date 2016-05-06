@@ -48,6 +48,18 @@
     </thead>
     <tbody>
       <tr>
+        <td>tabStyle</td>
+        <td><code>String</code></td>
+        <td><code>tabs</code></td>
+        <td>Tab style. E.g. "tabs" or "pills".</td>
+      </tr>
+      <tr>
+        <td>effect</td>
+        <td><code>String</code></td>
+        <td><code>fadein</code></td>
+        <td></td>
+      </tr>
+      <tr>
         <td>active</td>
         <td><code>Number</code></td>
         <td></td>

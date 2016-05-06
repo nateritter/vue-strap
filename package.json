@@ -1,11 +1,11 @@
 {
   "name": "vue-strap",
   "version": "1.0.8",
-  "description": "Bootstrap components built with Vue.js",
+  "description": "Bootstrap components built with Vue.js (original: yuche/vue-strap, updated by Nate Ritter to contain recent PRs)",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "yuche/vue-strap"
+    "url": "nateritter/vue-strap.git"
   },
   "homepage": "http://yuche.github.io/vue-strap/",
   "directories": {
@@ -45,9 +45,14 @@
   },
   "browserify": {
     "transform": [
-    [
-       "babelify", { "presets": ["es2015"] }
-    ],
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
       [
         "vueify"
       ]
@@ -59,5 +64,8 @@
     "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js"
   },
   "author": "yuche",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nateritter/vue-strap/issues"
+  }
 }

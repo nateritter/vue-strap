@@ -5,8 +5,8 @@
       <h4>
         Static arrays
       </h4>
-      <typeahead 
-        :data="USstate" 
+      <typeahead
+        :data="USstate"
         placeholder="USA states"
       ></typeahead>
       <hr>
@@ -16,7 +16,7 @@
         <small style="cursor:pointer">(not working?)</small>
       </tooltip>
       </h4>
-      <typeahead 
+      <typeahead
         placeholder="CCCAddress, async via maps.googleapis.com"
         key="results"
         async="https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -28,10 +28,10 @@
       <h4>
       Custom templates for results
       </h4>
-      <typeahead 
+      <typeahead
         placeholder="Github users, async via api.github.com"
         key="items"
-        async="https://api.github.com/search/users?q=" 
+        async="https://api.github.com/search/users?q="
         template-name="github"
         :template="githubTemplate"
         :on-hit="githubCallback"
@@ -48,7 +48,7 @@
   <typeahead
     placeholder="Address, async via maps.googleapis.com"
     key="results"
-    src="https://maps.googleapis.com/maps/api/geocode/json?address="
+    async="https://maps.googleapis.com/maps/api/geocode/json?address="
     template-name="async"
     :template="asyncTemplate"
     :on-hit="googleCallback">
@@ -58,7 +58,7 @@
   <typeahead
     placeholder="Github users, async via api.github.com"
     key="items"
-    src="https://api.github.com/search/users?q="
+    async="https://api.github.com/search/users?q="
     template-name="typeahead-github-template"
     :template="githubTemplate"
     :on-hit="githubCallback">
@@ -130,6 +130,12 @@ new Vue {
           <td><code>Boolean</code></td>
           <td><code>false</code></td>
           <td>Case sensitive for suggestions.</td>
+        </tr>
+        <tr>
+          <td>match-start</td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Match only against start of suggestions. E.g. if true, "a" matches "ab" but not "ba".</td>
         </tr>
         <tr>
           <td>on-hit</td>
