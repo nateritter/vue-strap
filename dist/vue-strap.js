@@ -144,7 +144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Typeahead2 = _interopRequireDefault(_Typeahead);
 	
-	var _Navbar = __webpack_require__(185);
+	var _Navbar = __webpack_require__(184);
 	
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 	
@@ -5248,7 +5248,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = __webpack_require__(182)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(184)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(183)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5315,44 +5315,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _callAjax = __webpack_require__(183);
-	
-	var _callAjax2 = _interopRequireDefault(_callAjax);
-	
 	var _coerceBoolean = __webpack_require__(30);
 	
 	var _coerceBoolean2 = _interopRequireDefault(_coerceBoolean);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// <template>
-	// <div style="position: relative"
-	//   v-bind:class="{'open':showDropdown}"
-	//   >
-	//   <input type="text" class="form-control"
-	//     :placeholder="placeholder"
-	//     autocomplete="off"
-	//     v-model="query"
-	//     @input="update"
-	//     @keydown.up="up"
-	//     @keydown.down="down"
-	//     @keydown.enter= "hit"
-	//     @keydown.esc="reset"
-	//     @blur="showDropdown = false"
-	//   />
-	//   <ul class="dropdown-menu" v-el:dropdown>
-	//     <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
-	//       <a @mousedown.prevent="hit" @mousemove="setActive($index)">
-	//         <partial :name="templateName"></partial>
-	//       </a>
-	//     </li>
-	//   </ul>
-	// </div>
-	
-	// </template>
-	
-	// <script>
-	
 	
 	var typeahead = {
 	  created: function created() {
@@ -5450,8 +5417,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.showDropdown = this.items.length ? true : false;
 	      }
 	      if (this.async) {
-	        (0, _callAjax2.default)(this.async + this.query, function (data) {
-	          _this2.items = (_this2.key ? data[_this2.key] : data).slice(0, _this2.limit);
+	        this.$http.get(this.async + this.query).then(function (response) {
+	          _this2.items = (_this2.key ? response.data[_this2.key] : response.data).slice(0, _this2.limit);
 	          _this2.showDropdown = _this2.items.length ? true : false;
 	        });
 	      }
@@ -5484,7 +5451,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return value.replace(new RegExp('(' + phrase + ')', 'gi'), '<strong>$1</strong>');
 	    }
 	  }
-	};
+	}; // <template>
+	// <div style="position: relative"
+	//   v-bind:class="{'open':showDropdown}"
+	//   >
+	//   <input type="text" class="form-control"
+	//     :placeholder="placeholder"
+	//     autocomplete="off"
+	//     v-model="query"
+	//     @input="update"
+	//     @keydown.up="up"
+	//     @keydown.down="down"
+	//     @keydown.enter= "hit"
+	//     @keydown.esc="reset"
+	//     @blur="showDropdown = false"
+	//   />
+	//   <ul class="dropdown-menu" v-el:dropdown>
+	//     <li v-for="item in items" v-bind:class="{'active': isActive($index)}">
+	//       <a @mousedown.prevent="hit" @mousemove="setActive($index)">
+	//         <partial :name="templateName"></partial>
+	//       </a>
+	//     </li>
+	//   </ul>
+	// </div>
+	
+	// </template>
+	
+	// <script>
+	
 	exports.default = typeahead;
 	// </script>
 
@@ -5498,41 +5492,16 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 183 */
 /***/ function(module, exports) {
 
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	exports.default = function (url, callback) {
-	    var httpRequest = new XMLHttpRequest();
-	    httpRequest.onreadystatechange = function () {
-	        if (httpRequest.readyState === 4) {
-	            if (httpRequest.status === 200) {
-	                var data = JSON.parse(httpRequest.responseText);
-	                if (callback) callback(data);
-	            }
-	        }
-	    };
-	    httpRequest.open('GET', url);
-	    httpRequest.setRequestHeader("Accept", "application/json");
-	    httpRequest.send();
-	};
-
-/***/ },
-/* 184 */
-/***/ function(module, exports) {
-
 	module.exports = "<div style=\"position: relative\"\n  v-bind:class=\"{'open':showDropdown}\"\n  >\n  <input type=\"text\" class=\"form-control\"\n    :placeholder=\"placeholder\"\n    autocomplete=\"off\"\n    v-model=\"query\"\n    @input=\"update\"\n    @keydown.up=\"up\"\n    @keydown.down=\"down\"\n    @keydown.enter= \"hit\"\n    @keydown.esc=\"reset\"\n    @blur=\"showDropdown = false\"\n  />\n  <ul class=\"dropdown-menu\" v-el:dropdown>\n    <li v-for=\"item in items\" v-bind:class=\"{'active': isActive($index)}\">\n      <a @mousedown.prevent=\"hit\" @mousemove=\"setActive($index)\">\n        <partial :name=\"templateName\"></partial>\n      </a>\n    </li>\n  </ul>\n</div>";
 
 /***/ },
-/* 185 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(186)
+	module.exports = __webpack_require__(185)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(187)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(186)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -5550,7 +5519,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 186 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5610,7 +5579,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// <script>
 
 /***/ },
-/* 187 */
+/* 186 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <slot></slot>\n        </div>\n        <slot name=\"dropdown-menu\"></slot>\n    </div>";

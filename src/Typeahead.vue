@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import callAjax from './utils/callAjax.js'
 import coerceBoolean from './utils/coerceBoolean.js'
 
 const typeahead = {
@@ -118,10 +117,11 @@ const typeahead = {
           this.showDropdown = this.items.length ? true : false
         }
         if (this.async) {
-          callAjax(this.async + this.query, (data)=> {
-            this.items = (this.key ? data[this.key] : data).slice(0, this.limit)
-            this.showDropdown = this.items.length ? true : false
-          })
+          this.$http.get(this.async + this.query)
+            .then(response => {
+              this.items = (this.key ? response.data[this.key] : response.data).slice(0, this.limit)
+              this.showDropdown = this.items.length ? true : false
+            })
         }
       },
       reset() {
