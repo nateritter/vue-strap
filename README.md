@@ -11,7 +11,7 @@ This repository contains a set of native Vue.js components based on Bootstrap's 
 ### NPM
 
 ```bash
-$ npm install vue-strap
+$ npm install nr-vue-strap
 ```
 
 ### CommonJS

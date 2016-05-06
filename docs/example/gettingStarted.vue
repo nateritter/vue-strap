@@ -19,7 +19,7 @@
     </div>
     <h2>CommonJS</h2>
     <pre><code class="language-javascript">
-$ npm install vue-strap
+$ npm install nr-vue-strap
 
 var alert = require('vue-strap/lib/alert');
 // or
@@ -33,7 +33,7 @@ new Vue({
     </code></pre>
     <h2>ES6</h2>
     <pre><code class="language-javascript">
-$ npm install vue-strap
+$ npm install nr-vue-strap
 
 import alert from 'vue-strap/src/alert'
 // or
