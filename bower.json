@@ -1,16 +1,20 @@
 {
-  "name": "vue-strap",
-  "homepage": "https://github.com/yuche/vue-strap",
+  "name": "nr-vue-strap",
+  "homepage": "https://github.com/nateritter/vue-strap",
   "authors": [
-    "yuche <i@yuche.me>"
+    "yuche <i@yuche.me>",
+    "nateritter <nate@perfectspace.com>"
   ],
-  "description": "Boostrap components built with Vue.js",
+  "description": "Boostrap components built with Vue.js. Original by yuche, updated by nateritter to include recent PRs",
   "main": [
     "dist/vue-strap.js",
     "dist/vue-strap.js.map",
     "dist/vue-strap.min.js"
   ],
-  "moduleType": ["amd","globals"],
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
   "keywords": [
     "bootstrap",
     "vue.js",
@@ -25,6 +29,8 @@
     "src",
     "favicon.ico",
     "index.html",
-    "webpack*.js"
+    "webpack*.js",
+    "test",
+    "tests"
   ]
 }

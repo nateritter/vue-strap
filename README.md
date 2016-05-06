@@ -27,22 +27,9 @@ new Vue({
 })
 ```
 
-### ES6
-```js
-import alert from 'vue-strap/src/alert'
-// or
-import { alert } from 'vue-strap'
-
-new Vue({
-  components: {
-    alert
-  }
-})
-```
-
 ### AMD
 ```js
-$ bower install vue-strap
+$ bower install nr-vue-strap
 
 define(['vue-strap'], function(VueStrap) { var alert = VueStrap.alert; ... });
 ```
