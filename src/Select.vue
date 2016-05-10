@@ -12,7 +12,11 @@
     <ul class="dropdown-menu">
       <template v-if="options.length">
         <li v-if="search" class="bs-searchbox">
-          <input type="text" placeholder="Search" v-model="searchText" class="form-control" autocomplete="off">
+          <input type="text" placeholder="Search" v-model="searchText" class="form-control"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false">
         </li>
         <li v-for="option in options | filterBy searchText " v-bind:id="option.value" style="position:relative">
           <a @mousedown.prevent="select(option.value)" style="cursor:pointer">

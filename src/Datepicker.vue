@@ -22,6 +22,10 @@
 <template>
   <div class="datepicker">
     <input class="form-control datepicker-input" :class="{'with-reset-button': showResetButton}" type="text"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
         v-bind:style="{width:width}"
         @click="inputClick"
         v-model="value"/>
