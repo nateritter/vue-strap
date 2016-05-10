@@ -1,6 +1,6 @@
 {
   "name": "nr-vue-strap",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Bootstrap components built with Vue.js (original: yuche/vue-strap, updated by Nate Ritter to contain recent PRs)",
   "main": "src/index.js",
   "repository": {
